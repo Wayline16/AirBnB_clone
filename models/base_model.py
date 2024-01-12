@@ -23,6 +23,8 @@ class BaseModel:
                     self.__dict__[i] = datetime.strptime(j, TimeFormat)
                 else:
                     self.__dict__[i] = j
+        else:
+            models.storage.new(self)
         
     def __str__(self):
         """
