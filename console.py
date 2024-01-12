@@ -8,6 +8,7 @@ import sys
 from shlex import split
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
 def parse(input_string):
     brackets = re.search(r"\[(.*?)\]", input_string)
     braces   = re.search(r"\{(.*?)\}", input_string)
@@ -30,7 +31,8 @@ class HBNBCommand(cmd.Cmd):
     
     prompt = "(hbnb) "
     __classes = {
-        'BaseModel': BaseModel
+        'BaseModel': BaseModel,
+        'User': User
     }
     
     def do_quit(self, arg):
