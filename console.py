@@ -9,6 +9,12 @@ from shlex import split
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
+
 def parse(input_string):
     brackets = re.search(r"\[(.*?)\]", input_string)
     braces   = re.search(r"\{(.*?)\}", input_string)
@@ -32,7 +38,12 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     __classes = {
         'BaseModel': BaseModel,
-        'User': User
+        'User': User,
+        'Place': Place,
+        'State': State,
+        'City': City,
+        'Amenity': Amenity,
+        'Review': Review
     }
     
     def do_quit(self, arg):
